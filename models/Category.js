@@ -6,6 +6,17 @@ class Category extends Model {}
 
 Category.init(
   {
+    // Manually define the primary key
+    id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true
+    },
+    category_name: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
     // define columns
   },
   {
@@ -17,4 +28,11 @@ Category.init(
   }
 );
 
+Product.belongsTo(Category);
+Category.hasMany(Product, {
+  foreignKey: ''
+});
+
+
 module.exports = Category;
+
