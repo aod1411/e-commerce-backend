@@ -16,8 +16,7 @@ Category.init(
     category_name: {
       type: DataTypes.STRING,
       allowNull: false
-    },
-    // define columns
+    }
   },
   {
     sequelize,
@@ -27,12 +26,6 @@ Category.init(
     modelName: 'category',
   }
 );
-
-Product.belongsTo(Category);
-Category.hasMany(Product, {
-  foreignKey: ''
-});
-
 
 module.exports = Category;
 
